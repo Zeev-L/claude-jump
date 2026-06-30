@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Opening Claude…</title>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+       background:#f4f5f7;color:#1f2329;display:flex;align-items:center;justify-content:center;
+       height:100vh;margin:0;text-align:center}
+  .c{max-width:340px;padding:20px}
+  .b{display:inline-block;background:#1f2329;color:#fff;text-decoration:none;font-size:15px;
+     font-weight:600;padding:11px 20px;border-radius:10px;margin-top:14px}
+  .s{color:#6b7280;font-size:13px;margin-top:12px;line-height:1.5}
+</style>
+</head>
+<body>
+  <div class="c">
+    <div style="font-size:17px;font-weight:700">Opening your Claude session…</div>
+    <a class="b" id="go" href="#">↗ Open session</a>
+    <div class="s">If it doesn't open automatically, click the button.<br>First time: approve “Open ClaudeJump?”.</div>
+  </div>
+  <script>
+    var t = new URLSearchParams(location.search).get('t') || '';
+    var url = 'claudejump://open?title=' + encodeURIComponent(t);
+    document.getElementById('go').href = url;
+    if (t) { location.replace(url); }   // instant redirect on a real (non-sandboxed) page
+  </script>
+</body>
+</html>
